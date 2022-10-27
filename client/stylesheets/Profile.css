@@ -267,3 +267,62 @@ input {
   bottom: 2px;
   left: 2px;
 }
+
+#delete-btn {
+  margin-left: 450px;
+  background-color: #3dd1e7;
+  border: 0 solid #e5e7eb;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 55px;
+  height: 40px;
+  cursor: pointer;
+  transform: rotate(365deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#delete-btn:focus {
+  outline: 0;
+}
+
+#delete-btn:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+#delete-btn:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+.delete-popup-container {
+  display: flex;
+  flex-direction: column;
+  vertical-align: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  overflow: auto;
+}

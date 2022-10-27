@@ -22,7 +22,7 @@ function SendMessage(props) {
   };
   return (
     <div>
-      <form onSubmit={sendMessage}>
+      <form classname='msg-form' onSubmit={sendMessage}>
         <input
           className="msg-input"
           value={blank}
