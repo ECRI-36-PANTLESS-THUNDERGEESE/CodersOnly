@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import './stylesheets/Profile.css';
+import Popup from './components/popup';
 
 //need to fetch our profile data from the database to fill in our profile
 const Profile = (props) => {
@@ -33,14 +34,9 @@ const Profile = (props) => {
     props.setCurrUser(false);
     fetch(`/api/${props.currUser}`, {
       method: 'DELETE',
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log('user', props.currUser);
-        window.location.reload();
-      });
+    }).then((data) => {
+      window.location.reload();
+    });
   };
 
   useEffect(() => {
@@ -56,18 +52,31 @@ const Profile = (props) => {
   console.log(profileData);
 
   const { username, age, location, comment, proglang, url } = profileData;
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   return (
     <div>
       {loginStatus && <Navigate to='/' />}
+      <Popup
+        trigger={buttonPopup}
+        data={profileData}
+        // REDUX - update dispatch update={props.updateTrans}
+        setTrigger={setButtonPopup}
+        setProfile={setProfileData}
+      ></Popup>
       <Navbar currUser={props.currUser} setCurrUser={props.setCurrUser} />
       <div className='profilePage'>
         <div className='profileContainer'>
           <div className='username'>
+            <div id='btn'>
+              <button className='logOutBtn' onClick={logOutHandler}>
+                Log Out
+              </button>
+              <button id='update-btn' onClick={() => setButtonPopup(true)}>
+                Update
+              </button>
+            </div>
             <h1>{username}</h1>
-            <button className='logOutBtn' onClick={logOutHandler}>
-              Log Out
-            </button>
           </div>
           <img className='profileImage' src={url} alt='profileImage' />
           <p className='userDetail'>Age: {age}</p>
