@@ -10,7 +10,8 @@ h1 {
   align-content: center;
   margin-left: 10px;
   margin-right: auto;
-  width: 200px;
+  margin-bottom: 10px;
+  width: 350px;
   height: 515px;
   overflow: scroll;
   z-index: 100;
@@ -69,8 +70,8 @@ h1 {
   left: 2px;
 }
 
-.msg_input {
-  margin-bottom: 15px;
+.msg-input {
+  margin-bottom: 20px;
   width: 220px;
   border-radius: 5px;
   margin-left: 10px;
