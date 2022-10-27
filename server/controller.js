@@ -39,6 +39,28 @@ controller.createUser = async (req, res, next) => {
   }
 };
 
+//update user
+
+controller.updateUser = async (req, res, next) => {
+  try {
+    const { username } = req.params;
+    const data = req.body;
+    const curUser = await User.findOne({ username });
+    const updatedUser = await User.findOneAndUpdate({ username }, data, {
+      new: true,
+    }).exec();
+    return next();
+  } catch (err) {
+    return next({
+      log: `controller.js: ERROR: ${err}`,
+      status: 400,
+      message: {
+        err: 'An error occurred in controller.updateUser. Check server logs for more details',
+      },
+    });
+  }
+};
+
 // change functionality to be for all instances of matches with value of not 'no' (or 'yes' and null)
 controller.getUser = async (req, res, next) => {
   try {
