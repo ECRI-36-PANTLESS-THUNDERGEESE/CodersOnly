@@ -130,8 +130,10 @@ controller.getFriends = async (req, res, next) => {
 
 controller.deleteUser = async (req, res, next) => {
   try{
+    console.log('got to delete');
     const { username } = req.params;
-    const deleted = User.findOneAndDelete({username});
+    console.log('username', username);
+    const deleted = await User.findOneAndDelete({username});
     return next();
   }
   catch(err){
