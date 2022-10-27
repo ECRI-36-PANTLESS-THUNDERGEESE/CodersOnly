@@ -1,31 +1,26 @@
-/* .profile {
-  border: solid black;
-}
-
-.profile-page {
-  border: solid red;
-}
-
-.profile-image {
-  border: solid blue;
-  text-align:center;
-}
-
-.profile-bio {
-  border: solid blue;
-  text-align:center;
-} */
 h1 {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 30px;
-  text-decoration: underline;
 }
 
-h2 {
-  font-family: 'Courier New', Courier, monospace;
+.fire-chat {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+  align-content: center;
+  margin-left: 10px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 350px;
+  height: 515px;
+  overflow: scroll;
+  z-index: 100;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
-.prompt-btn {
+.msg-btn {
   background-color: #3dd1e7;
   border: 0 solid #e5e7eb;
   box-sizing: border-box;
@@ -43,7 +38,7 @@ h2 {
   text-align: center;
   text-decoration: none #000000 solid;
   text-decoration-thickness: auto;
-  width: 250px;
+  width: 200px;
   height: auto;
   max-width: 460px;
   position: relative;
@@ -53,13 +48,14 @@ h2 {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
-.prompt-btn:focus {
+.msg-btn:focus {
   outline: 0;
 }
 
-.prompt-btn:after {
+.msg-btn:after {
   content: '';
   position: absolute;
   border: 1px solid #000000;
@@ -69,7 +65,19 @@ h2 {
   height: calc(100% - 1px);
 }
 
-.prompt-btn:hover:after {
+.msg-btn:hover:after {
   bottom: 2px;
   left: 2px;
+}
+
+.msg-input {
+  margin-bottom: 20px;
+  width: 220px;
+  border-radius: 5px;
+  margin-left: 10px;
+  height: 35px;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }

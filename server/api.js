@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
 
+router.get('/checkSession', controller.isLoggedIn, (req, res) => {
+  return res.status(200).json(res.locals.sessionFound);
+});
+
+router.delete('/:id', controller.logOut, (req, res) => {
+  return res.status(200).json('Deleted');
+});
+
 router.post('/verification', controller.verifyUser, (req, res) => {
   return res.status(201).json(res.locals.userExists);
 });
@@ -28,5 +36,13 @@ router.patch(
     return res.status(200).json(res.locals.match);
   }
 );
+
+router.put('/update/:username', controller.updateUser, (req, res) => {
+  return res.status(200);
+});
+
+router.delete('/users/delete/:username', controller.deleteUser, (req, res) => {
+  res.status(200);
+});
 
 module.exports = router;

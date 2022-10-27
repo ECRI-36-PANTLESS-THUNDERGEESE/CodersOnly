@@ -7,8 +7,10 @@
   align-items: center;
   background-color: #07beb8;
   height: 10%;
+  width: 100%;
   box-shadow: none;
   border-bottom: 2px solid black;
+  z-index: 2;
 }
 .mascot {
   font-family: 'DejaVu Sans Mono', sans-serif;
@@ -25,7 +27,7 @@
 }
 
 .navBarImage {
-  height: 85px;
+  height: 95px;
   width: auto;
 }
 

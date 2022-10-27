@@ -8,7 +8,8 @@ import UpdateProfile from './components/UpdateProfile';
 import Matches from './Matches';
 
 //imported stylesheet
-import './stylesheets/style.css';
+import styles from './stylesheets/style.css';
+import DailyProblem from './components/dailyProblem.jsx';
 
 //rendering profile here just for now before we add routers
 const App = () => {
@@ -20,6 +21,12 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         setAllUsers(data);
+      });
+
+    fetch('/api/checkSession')
+      .then((response) => response.json())
+      .then((data) => {
+        setCurrUser(data);
       });
   }, []);
 
@@ -33,10 +40,17 @@ const App = () => {
         path='/Feed'
         element={<Feed currUser={currUser} allUsers={allUsers} />}
       />
-      <Route path='/Profile' element={<Profile currUser={currUser} />} />
+      <Route
+        path='/Profile'
+        element={<Profile currUser={currUser} setCurrUser={setCurrUser} />}
+      />
       <Route
         path='/Matches'
         element={<Matches currUser={currUser} allUsers={allUsers} />}
+      />
+      <Route
+        path='/Daily'
+        element={<DailyProblem currUser={currUser} allUsers={allUsers} />}
       />
     </Routes>
   );
