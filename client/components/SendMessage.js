@@ -24,7 +24,7 @@ function SendMessage(props) {
     <div>
       <form onSubmit={sendMessage}>
         <input
-          classname="msg_input"
+          className="msg-input"
           value={blank}
           onChange={(e) => {
             let newText = e.target.value.replace(
