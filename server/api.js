@@ -37,4 +37,8 @@ router.patch(
   }
 );
 
+router.delete('/users/delete/:username', controller.deleteUser, (req, res) => {
+  res.status(200);
+});
+
 module.exports = router;

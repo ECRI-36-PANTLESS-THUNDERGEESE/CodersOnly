@@ -23,9 +23,9 @@ function SendMessage(props) {
   };
   return (
     <div>
-      <form onSubmit={sendMessage}>
+      <form classname='msg-form' onSubmit={sendMessage}>
         <input
-          classname='msg_input'
+          classname='msg-input'
           value={blank}
           onChange={(e) => {
             let newText = e.target.value.replace(/\bshit|fuck|bitch|create +react +app| hate +javascript|hate +codesmith\b/gi, " 🧐🧐🧐🧐");

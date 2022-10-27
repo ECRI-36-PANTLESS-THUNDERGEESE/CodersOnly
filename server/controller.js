@@ -105,6 +105,24 @@ controller.getFriends = async (req, res, next) => {
   }
 };
 
+
+controller.deleteUser = async (req, res, next) => {
+  try{
+    const { username } = req.params;
+    const deleted = User.findOneAndDelete({username});
+    return next();
+  }
+  catch(err){
+    return next({
+      log: `controller.js: ERROR: ${err}`,
+      status: 400,
+      message: {
+        err: 'An error occurred in controller.deleteUser. Check server logs for more details',
+      },
+    });
+  }
+}
+
 // controller to update user's matches
 controller.updateUserMatches = async (req, res, next) => {
   try {

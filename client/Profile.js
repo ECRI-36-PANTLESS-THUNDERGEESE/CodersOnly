@@ -16,6 +16,18 @@ const Profile = (props) => {
 
   const [loginStatus, setLoginStatus] = useState(false);
 
+  const deleteHandler = () => {
+    fetch(`api/users/delete/${props.currUser}`, {
+      method: 'DELETE',
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then( data => {
+      window.location.reload();
+    })
+  }
+
   const logOutHandler = () => {
     setLoginStatus(true);
     props.setCurrUser(false);
