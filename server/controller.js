@@ -180,6 +180,7 @@ controller.logOut = async (req, res, next) => {
   try {
     const { _id } = await User.findOne({ username: req.params.id });
     const result = await Session.findOneAndDelete({ cookieId: _id });
+    next();
   } catch {
     next({
       log: 'log out controller error',

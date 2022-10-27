@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import db from '../firebase';
+import '../stylesheets/ChatFire.css';
 
 function SendMessage(props) {
   const [msg, setMsg] = useState('');
+  const [blank, setBlank] = useState('');
 
   const sendMessage = async (e) => {
     e.preventDefault();
+    setBlank('');
     const currUser = props.currUser;
 
     await db.collection(`${props.collectionName}`).add({
@@ -21,11 +24,21 @@ function SendMessage(props) {
     <div>
       <form onSubmit={sendMessage}>
         <input
-          value={msg}
-          onChange={(e) => setMsg(e.target.value)}
-          placeholder='...message'
+          className='msg_input'
+          value={blank}
+          onChange={(e) => {
+            let newText = e.target.value.replace(
+              /\bshit|fuck|bitch|create +react +app| hate +javascript|hate +codesmith\b/gi,
+              ' 🧐🧐🧐🧐'
+            );
+            setMsg(newText);
+            setBlank(e.target.value);
+          }}
+          placeholder='...type your message'
         ></input>
-        <button type='submit'>Send</button>
+        <button className='msg-btn' type='submit'>
+          Send
+        </button>
       </form>
     </div>
   );
