@@ -8,7 +8,7 @@ import UpdateProfile from './components/UpdateProfile';
 import Matches from './Matches';
 
 //imported stylesheet
-import './stylesheets/style.css';
+import styles from './stylesheets/style.css';
 import DailyProblem from './components/dailyProblem.jsx';
 
 //rendering profile here just for now before we add routers

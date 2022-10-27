@@ -4,6 +4,7 @@
   flex-direction: column;
 }
 #daily {
+  top: 150px;
   display: grid;
   grid-template-areas:
     'prob solu'

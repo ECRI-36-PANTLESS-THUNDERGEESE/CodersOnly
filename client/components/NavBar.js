@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../stylesheets/NavBar.css';
+import styles from '../stylesheets/NavBar.css';
 import { Link, Navigate } from 'react-router-dom';
 import Mole from '../assets/Star-nosed-mole.png';
 
