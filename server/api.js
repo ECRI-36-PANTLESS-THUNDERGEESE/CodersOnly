@@ -7,7 +7,7 @@ router.get('/checkSession', controller.isLoggedIn, (req, res) => {
 });
 
 router.delete('/:id', controller.logOut, (req, res) => {
-  return res.status(200).json(false);
+  return res.status(200).json('Deleted');
 });
 
 router.post('/verification', controller.verifyUser, (req, res) => {
