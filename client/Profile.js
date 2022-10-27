@@ -21,14 +21,9 @@ const Profile = (props) => {
     props.setCurrUser(false);
     fetch(`/api/${props.currUser}`, {
       method: 'DELETE',
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log('user', props.currUser);
-        window.location.reload();
-      });
+    }).then((data) => {
+      window.location.reload();
+    });
   };
 
   useEffect(() => {
